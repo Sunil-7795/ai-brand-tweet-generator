@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>AI Brand Tweet Generator</title>
+
+<link rel="stylesheet" href="/static/style.css">
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>AI Brand Tweet Generator</h1>
+
+<button class="theme-btn" onclick="toggleTheme()">🌙 Toggle Theme</button>
+
+<p>Create tweets that match your brand voice</p>
+
+<div class="form-box">
+
+<input id="brand" placeholder="Brand Name">
+
+<input id="industry" placeholder="Industry">
+
+<select id="objective">
+<option>Engagement</option>
+<option>Promotion</option>
+<option>Awareness</option>
+</select>
+
+<textarea id="product" placeholder="Describe the product"></textarea>
+
+<button onclick="generateTweets()">Generate Tweets</button>
+
+<button onclick="downloadTweets()">Download Tweets</button>
+
+</div>
+
+<div id="loading">Generating tweets...</div>
+
+<div class="output">
+
+<h2>Brand Voice</h2>
+<div id="voice"></div>
+
+<h2>Generated Tweets</h2>
+<div id="tweets"></div>
+
+</div>
+
+</div>
+
+<script src="/static/script.js"></script>
+
+</body>
+
+</html>
