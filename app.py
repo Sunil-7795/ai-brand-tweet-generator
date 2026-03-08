@@ -1,10 +1,10 @@
 from flask import Flask, render_template, request, jsonify
 from groq import Groq
+import os
 
 app = Flask(__name__)
 
-# Add your Groq API key
-client = Groq(api_key="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")
+client = Groq(api_key=os.getenv("GROQ_API_KEY"))
 
 
 def detect_brand_voice(brand):
@@ -55,18 +55,20 @@ def generate():
     else:
 
         prompt_voice = f"""
-Analyze the brand voice.
+Analyze the brand voice for the following brand.
 
 Brand: {brand}
 Industry: {industry}
 Product: {product}
 
-Identify:
-- Brand tone
-- Target audience
-- Content themes
+Return exactly 4 short insights:
 
-Give the answer in 4 short bullet points.
+1. Brand Tone
+2. Target Audience
+3. Content Themes
+4. Communication Style
+
+Keep each insight concise (1 sentence).
 """
 
         response = client.chat.completions.create(

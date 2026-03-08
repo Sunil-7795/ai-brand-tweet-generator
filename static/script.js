@@ -30,7 +30,26 @@ let data=await response.json()
 
 document.getElementById("loading").style.display="none"
 
-document.getElementById("voice").innerText=data.voice
+let voiceText = data.voice.split("\n")
+
+let voiceHTML=""
+
+voiceText.forEach(line=>{
+
+if(line.trim()!=""){
+
+voiceHTML+=`
+<div class="voice-item">
+<div class="voice-title">Brand Insight</div>
+${line}
+</div>
+`
+
+}
+
+})
+
+document.getElementById("voice").innerHTML=voiceHTML
 
 let tweets=data.tweets.split("\n")
 
